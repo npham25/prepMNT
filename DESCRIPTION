@@ -1,0 +1,13 @@
+Package: prepMNT
+Type: Package
+Title: Preprocess the MNTs data
+Version: 0.1.0
+Author: Su Chen <schen4@memphis.edu>
+Maintainer: Ngan Pham <npham@memphis.edu>
+Description: 
+    This package preprocesses the MNTs data by removing MNTs which have few available values and imputing the zero values
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+    caret, missForest, impute, magrittr, imputeLCMD, imputeLCMD
