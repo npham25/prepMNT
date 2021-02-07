@@ -17,7 +17,7 @@ require(imputeLCMD)
 require(caret)
 
 prepMNT <- function(x, pctZero=75, freqCut = 19, uniqueCut = 20) {
-  res <- nearZeroVar(x, freqCut = freqCut, uniqueCut = uniqueCut,saveMetrics = TRUE, names = FALSE,
+  res <- caret::nearZeroVar(x, freqCut = freqCut, uniqueCut = uniqueCut,saveMetrics = TRUE, names = FALSE,
                      foreach = FALSE, allowParallel = TRUE)
   #Count number of zeroes and NAs
   res$pctZero <- as.vector(apply(x, 2, function(x)  100*sum(x == 0, na.rm=T)/length(na.omit(x))))
