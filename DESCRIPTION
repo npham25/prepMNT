@@ -5,9 +5,10 @@ Version: 0.1.0
 Author: Su Chen <schen4@memphis.edu>
 Maintainer: Ngan Pham <npham@memphis.edu>
 Description: 
-    This package preprocesses the MNTs data by removing MNTs which have few available values and imputing the zero values
-License: What license is it under?
+    This package preprocesses the MNTs data by removing MNTs which have few available values and imputing the zero values using the Quantile Regression Imputation of Left-Censored data
+
+License: 
 Encoding: UTF-8
 LazyData: true
 Imports:
-    caret, missForest, impute, magrittr, imputeLCMD, imputeLCMD
+    imputeLCMD
