@@ -1,8 +1,5 @@
-require(imputeLCMD)
-require(magrittr)
-
 prepMNT <- function(x, pctZeroCut=75, freqCut = 19, uniqueCut = 20) 
-  {
+ {
   if (is.null(dim(x))) 
     x <- matrix(x, ncol = 1)
   
@@ -30,18 +27,11 @@ prepMNT <- function(x, pctZeroCut=75, freqCut = 19, uniqueCut = 20)
   x[x == 0] <- ""
   x <- as.matrix(apply(x,2,function(x) as.numeric(as.character(x))))
   return (QRILC_wrapper(x))
-  }
+ }
 
-QRILC_wrapper <- function(data, ...) {
-  result <- data %>% log %>% imputeLCMD::impute.QRILC(., ...) %>% magrittr::extract2(1) %>% exp
-  return(result)
-}
-
-`%>%` <- function(lhs, rhs) {
-  lhs <- substitute(lhs)
-  rhs <- substitute(rhs)
-  kind <- 1L
-  env <- parent.frame()
-  lazy <- TRUE
-  .External2(magrittr_pipe)
+QRILC_wrapper <- function(x, ...) 
+{
+  x <- log(x)
+  res <- imputeLCMD::impute.QRILC(x,...) 
+  return(exp(res[[1]]))
 }
