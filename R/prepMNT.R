@@ -16,10 +16,11 @@ inst_pkg <- function(pkg){
   sapply(pkg, require, character.only = TRUE)
 }
 
-inst_pkg(c("dplyr","imputeLCMD","caret"))
+inst_pkg(c("dplyr","imputeLCMD","caret","magrittr"))
 require(dplyr)
 require(imputeLCMD)
 require(caret)
+require(magrittr)
     
 prepMNT <- function(x, pctZero=75, freqCut = 19, uniqueCut = 20) {
   res <- caret::nearZeroVar(x, freqCut = freqCut, uniqueCut = uniqueCut,saveMetrics = TRUE, names = FALSE,
