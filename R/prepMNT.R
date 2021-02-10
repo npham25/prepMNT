@@ -31,7 +31,6 @@ prepMNT <- function(x, pctZeroCut=75, freqCut = 19, uniqueCut = 20)
 
 QRILC_wrapper <- function(x, ...) 
 {
-  x <- log(x)
-  res <- imputeLCMD::impute.QRILC(x,...) 
+  res <- imputeLCMD::impute.QRILC(log(x),...) 
   return(exp(res[[1]]))
 }
