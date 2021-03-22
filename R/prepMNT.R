@@ -1,5 +1,8 @@
-prepMNT <- function(x, seed=1234, pctZeroCut=75, freqCut = 19, uniqueCut = 20) 
+prepMNT <- function(x_t, seed=1234, pctZeroCut=75, freqCut = 19, uniqueCut = 20) 
  {
+  #Transpose x
+  
+ #reproducable
   set.seed(seed)
   if (is.null(dim(x))) 
     x <- matrix(x, ncol = 1)
